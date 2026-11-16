@@ -1,6 +1,31 @@
 # Skyrim Live Map
 
+![Skyrim Live Map: a live 3D map of Skyrim on your phone, tablet or second monitor](media/nexus/00-main-image.png)
+
 A 3D map of Skyrim in your browser that tracks your character live, on a second monitor, phone or tablet: a companion app in the spirit of the RDR2 one.
+
+**Download:** [latest release](https://github.com/AaronCuddeback/skyrim-live-map/releases/latest). You need both the plugin and the app; see [Install (players)](#install-players).
+
+## Screenshots
+
+| | |
+|---|---|
+| ![Whiterun in 3D, parchment style, with its buildings, the walked trail and a quest marker](media/nexus/01-whiterun-3d-parchment.jpg) | ![Whiterun Hold in 3D with the route from Riverwood and tracked quests](media/nexus/02-whiterun-hold-3d-terrain.jpg) |
+| **Parchment style**: real buildings and walls, your trail, quest markers | **Terrain style**: the hold in 3D with your route and quests |
+| ![The floor plan of Bleak Falls Temple with the player, a follower and enemies](media/nexus/04-dungeon-floor-plan.jpg) | ![The world map style from above, with discovered locations](media/nexus/03-world-map-style.jpg) |
+| **Dungeon floor plans**, built for every interior, mod-added ones too | **World Map style**, from your installed world map mod |
+| ![The panel with tracked quests, nearby enemies and followers, map styles and filters](media/nexus/06-quests-and-nearby.jpg) | ![The searchable inventory sheet](media/nexus/07-inventory.jpg) |
+| **Quests and nearby** characters with level and health | **Inventory and magic**, searchable and sortable |
+
+<p align="center">
+  <img src="media/nexus/08-phone-dungeon.jpg" width="250" alt="Phone: dungeon floor plan">
+  <img src="media/nexus/09-phone-world-map.jpg" width="250" alt="Phone: route and quest pins on the world map">
+  <img src="media/nexus/10-phone-3d.jpg" width="250" alt="Phone: 3D view of Whiterun Hold">
+</p>
+
+<sub>Taken with the built-in simulator (`server/simulate.js`) on a Nolvus Awakening map: the map is built from the real load order; the character, enemies and quests are simulated.</sub>
+
+## How it works
 
 ```
 Skyrim + SKSE plugin ──named pipe, JSON (10 Hz)──▶ relay server (Node) ──WebSocket──▶ any browser on your LAN

@@ -1,0 +1,41 @@
+Nexus image captions (Images tab: upload each file, paste its caption).
+Set 00-main-image.png as the mod's Primary image, and 00-header-banner.png as the header image.
+
+00-main-image.png
+  Skyrim Live Map: a live 3D map of Skyrim on your phone, tablet or second monitor.
+
+00-header-banner.png
+  (header image, no caption needed)
+
+01-whiterun-3d-parchment.jpg
+  Parchment style in 3D: Whiterun's real buildings and walls, your walked trail and a quest marker.
+
+02-whiterun-hold-3d-terrain.jpg
+  Terrain style: Whiterun Hold in 3D with the road you took from Riverwood and your tracked quests.
+
+03-world-map-style.jpg
+  World Map style uses your installed world map mod's texture (here, from Nolvus), with every location you've discovered.
+
+04-dungeon-floor-plan.jpg
+  Inside Bleak Falls Temple: the real floor plan of the dungeon you're in, with you, your follower and enemies.
+
+05-dungeon-over-world-map.jpg
+  Interior maps work in any style, and are built for every dungeon, cave and house, mod-added ones too.
+
+06-quests-and-nearby.jpg
+  The panel: tracked quests and objectives, nearby enemies and followers with level and health, map styles and filters.
+
+07-inventory.jpg
+  Your full inventory with search, categories and sorting, plus a Magic tab for spells and shouts.
+
+08-phone-dungeon.jpg
+  On a phone: the dungeon floor plan follows you room by room.
+
+09-phone-world-map.jpg
+  On a phone: your route and quest pins on the world map.
+
+10-phone-3d.jpg
+  On a phone: 3D view of Whiterun Hold. Pinch to zoom, twist to rotate.
+
+Note: screenshots were taken with the map's built-in simulator on a Nolvus Awakening map; the
+character, enemies and quests are simulated, the map itself is built from the real load order.
