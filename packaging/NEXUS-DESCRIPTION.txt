@@ -1,11 +1,17 @@
 NEXUS MODS PAGE TEXT (paste into the description editor in BBCode mode)
+Images: the description embeds the screenshots from the GitHub repo by URL. Also upload them in the
+Images tab (media\nexus, captions in media\nexus\CAPTIONS.txt): 00-main-image.png as the primary
+image and 00-header-banner.png as the header image.
+
 Short summary (for the "Brief overview" field, max ~350 characters):
 
 A live 3D map of Skyrim on your phone, tablet or second monitor. It follows your character in real time with quest markers, nearby enemies, interior floor plans, a compass and your inventory, and it's built from your own load order, so mod-added towns and dungeons are on it. Works with Wabbajack lists like Nolvus.
 
 ---------------------------------------------------------------- description below
 
-[center][size=6][b]Skyrim Live Map[/b][/size]
+[center][img]https://raw.githubusercontent.com/AaronCuddeback/skyrim-live-map/main/media/nexus/00-main-image.png[/img]
+
+[size=6][b]Skyrim Live Map[/b][/size]
 [size=3]A live companion map for your phone, tablet or second monitor[/size][/center]
 
 [size=4][b]What it is[/b][/size]
@@ -28,6 +34,29 @@ The map is built from [b]your own game files and load order[/b], so towns, dunge
 [*][b]Multiple modlists[/b]: with Auto on, the map switches to whichever list you launch.
 [*]Phone-friendly, with full screen and "Add to Home Screen" support.
 [/list]
+
+[size=4][b]Screenshots[/b][/size]
+[center][b]Parchment style in 3D[/b]: Whiterun's real buildings and walls, your walked trail and a quest marker
+[img]https://raw.githubusercontent.com/AaronCuddeback/skyrim-live-map/main/media/nexus/01-whiterun-3d-parchment.jpg[/img]
+
+[b]Terrain style[/b]: Whiterun Hold in 3D with your route from Riverwood and your tracked quests
+[img]https://raw.githubusercontent.com/AaronCuddeback/skyrim-live-map/main/media/nexus/02-whiterun-hold-3d-terrain.jpg[/img]
+
+[b]Dungeon floor plans[/b]: the real layout of the place you're in, with you, your follower and enemies
+[img]https://raw.githubusercontent.com/AaronCuddeback/skyrim-live-map/main/media/nexus/04-dungeon-floor-plan.jpg[/img]
+
+[b]World Map style[/b]: uses your installed world map mod, with every place you've discovered
+[img]https://raw.githubusercontent.com/AaronCuddeback/skyrim-live-map/main/media/nexus/03-world-map-style.jpg[/img]
+
+[b]Quests and nearby characters[/b], plus map styles and filters in the panel
+[img]https://raw.githubusercontent.com/AaronCuddeback/skyrim-live-map/main/media/nexus/06-quests-and-nearby.jpg[/img]
+
+[b]Inventory and magic[/b], searchable and sortable
+[img]https://raw.githubusercontent.com/AaronCuddeback/skyrim-live-map/main/media/nexus/07-inventory.jpg[/img]
+
+[b]On your phone[/b]
+[img]https://raw.githubusercontent.com/AaronCuddeback/skyrim-live-map/main/media/nexus/08-phone-dungeon.jpg[/img] [img]https://raw.githubusercontent.com/AaronCuddeback/skyrim-live-map/main/media/nexus/09-phone-world-map.jpg[/img] [img]https://raw.githubusercontent.com/AaronCuddeback/skyrim-live-map/main/media/nexus/10-phone-3d.jpg[/img]
+[size=1]Screenshots use the map's built-in simulator on a Nolvus map: the map is real, the character, enemies and quests are simulated.[/size][/center]
 
 [size=4][b]Requirements[/b][/size]
 [list]
@@ -86,6 +115,9 @@ Disable or remove the plugin in your mod manager, delete the app folder, and del
 [*]three.js, Node.js, Python, NumPy, Pillow, lz4 (licenses in the THIRD-PARTY-NOTICES file)
 [/list]
 Maps are generated on your own PC from your own copy of the game; no Bethesda assets are included in the downloads.
+
+[size=4][b]Source code[/b][/size]
+Open source under the MIT license: [url=https://github.com/AaronCuddeback/skyrim-live-map]github.com/AaronCuddeback/skyrim-live-map[/url]. Bug reports and ideas are welcome there or in the Posts tab.
 
 ---------------------------------------------------------------- Files tab
 
