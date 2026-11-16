@@ -1,0 +1,22 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {
+      "name": "release",
+      "displayName": "Release (VS 2022, x64)",
+      "description": "Build tree and vcpkg caches live under %LOCALAPPDATA%\\slm-build to stay under Windows' 260-character path limit.",
+      "generator": "Visual Studio 17 2022",
+      "architecture": "x64",
+      "binaryDir": "$env{LOCALAPPDATA}/slm-build/build",
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+        "VCPKG_TARGET_TRIPLET": "x64-windows-static-md",
+        "VCPKG_INSTALLED_DIR": "$env{LOCALAPPDATA}/slm-build/installed",
+        "VCPKG_INSTALL_OPTIONS": "--x-buildtrees-root=$env{LOCALAPPDATA}/slm-build/bt;--x-packages-root=$env{LOCALAPPDATA}/slm-build/pk"
+      }
+    }
+  ],
+  "buildPresets": [
+    { "name": "release", "configurePreset": "release", "configuration": "Release" }
+  ]
+}

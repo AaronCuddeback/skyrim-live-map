@@ -1,0 +1,11 @@
+node_modules/
+web/data/
+plugin/build/
+plugin/vcpkg_installed/
+tools/.venv/
+__pycache__/
+*.log
+dist/
+.claude/
+*.res
+*.obj

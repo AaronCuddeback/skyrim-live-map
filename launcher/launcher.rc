@@ -1,0 +1,27 @@
+#include <winver.h>
+#include "version.h"  // written by tools/package.py
+
+1 ICON "SkyrimLiveMap.ico"
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION SLM_VERSION_COMMAS
+ PRODUCTVERSION SLM_VERSION_COMMAS
+ FILEOS VOS_NT_WINDOWS32
+ FILETYPE VFT_APP
+BEGIN
+  BLOCK "StringFileInfo"
+  BEGIN
+    BLOCK "040904b0"
+    BEGIN
+      VALUE "FileDescription", "Skyrim Live Map"
+      VALUE "ProductName", "Skyrim Live Map"
+      VALUE "FileVersion", SLM_VERSION
+      VALUE "ProductVersion", SLM_VERSION
+      VALUE "OriginalFilename", "SkyrimLiveMap.exe"
+    END
+  END
+  BLOCK "VarFileInfo"
+  BEGIN
+    VALUE "Translation", 0x409, 1200
+  END
+END

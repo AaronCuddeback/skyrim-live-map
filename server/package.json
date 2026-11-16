@@ -1,0 +1,17 @@
+{
+  "name": "skyrim-live-map-server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Relays live Skyrim telemetry from the SKSE plugin to browsers on your LAN",
+  "scripts": {
+    "start": "node server.js",
+    "simulate": "node simulate.js",
+    "extract": "..\\tools\\.venv\\Scripts\\python.exe ..\\tools\\extract_map.py"
+  },
+  "dependencies": {
+    "qrcode-terminal": "^0.12.0",
+    "three": "0.170.0",
+    "ws": "^8.18.0"
+  }
+}

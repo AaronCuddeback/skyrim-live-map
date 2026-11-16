@@ -1,0 +1,103 @@
+NEXUS MODS PAGE TEXT (paste into the description editor in BBCode mode)
+Short summary (for the "Brief overview" field, max ~350 characters):
+
+A live 3D map of Skyrim on your phone, tablet or second monitor. It follows your character in real time with quest markers, nearby enemies, interior floor plans, a compass and your inventory, and it's built from your own load order, so mod-added towns and dungeons are on it. Works with Wabbajack lists like Nolvus.
+
+---------------------------------------------------------------- description below
+
+[center][size=6][b]Skyrim Live Map[/b][/size]
+[size=3]A live companion map for your phone, tablet or second monitor[/size][/center]
+
+[size=4][b]What it is[/b][/size]
+An SKSE plugin plus a small companion app. While you play, the app serves a 3D map of Skyrim to any browser on your home network: open it on your phone, a tablet or a second screen, and it tracks you live. No more pausing to open the map.
+
+The map is built from [b]your own game files and load order[/b], so towns, dungeons and landscape changes from your mods are on it, and every modlist you play gets its own map.
+
+[size=4][b]Features[/b][/size]
+[list]
+[*][b]3D map of Skyrim[/b] in three styles: real landscape textures, a hand-drawn parchment map, or your world map texture (matches Paper World Map, Quality World Map, Flat World Map Framework maps and similar).
+[*][b]Live player arrow[/b], a walked trail and a Skyrim-style [b]compass[/b].
+[*][b]Quest markers[/b] for your tracked quests, plus a quest list with the current objectives.
+[*][b]Nearby NPCs and creatures[/b], colored by hostility, with level and health.
+[*][b]Interior floor plans[/b]: inside dungeons, caves and houses you get the real layout of the place, cut away above your head, with you, enemies and doors on it.
+[*][b]Buildings and city walls[/b] drawn in 3D around you outdoors.
+[*][b]Character sheet[/b]: stats, gear, gold, carry weight, plus searchable [b]inventory and spells[/b].
+[*][b]Only places you've discovered[/b] are shown, like the in-game map. Search finds everything.
+[*][b]Destinations[/b]: tap a place to get a guide line with distance and ETA.
+[*][b]In-game hotkeys[/b] (number pad) to zoom and pan the map without touching your phone, and a settings page in [b]SKSE Menu Framework[/b] (F10).
+[*][b]Multiple modlists[/b]: with Auto on, the map switches to whichever list you launch.
+[*]Phone-friendly, with full screen and "Add to Home Screen" support.
+[/list]
+
+[size=4][b]Requirements[/b][/size]
+[list]
+[*][url=https://skse.silverlock.org/]SKSE64[/url]
+[*][url=https://www.nexusmods.com/skyrimspecialedition/mods/32444]Address Library for SKSE Plugins[/url]
+[*]Optional: [url=https://www.nexusmods.com/skyrimspecialedition/mods/120352]SKSE Menu Framework[/url] for the in-game settings page
+[*]Windows 10 or 11. The app runs on the same PC as the game; the map opens in any modern browser.
+[/list]
+Works on Skyrim SE 1.5.97 and AE 1.6.x. Not for Skyrim VR.
+
+[size=4][b]Installation[/b][/size]
+There are [b]two downloads[/b] in the Files tab. You need both.
+
+[b]1. Skyrim Live Map - SKSE Plugin[/b]
+Install it with your mod manager like any other mod (MO2: "Install a new mod from an archive"; Vortex: drag it in), and enable it. It conflicts with nothing.
+[i]Wabbajack lists (Nolvus, etc.): adding a mod won't break the list, but its next update may ask what to do with it. Keep it, or reinstall it afterwards.[/i]
+
+[b]2. Skyrim Live Map - Companion App[/b]
+This one is NOT a mod: don't install it with your mod manager. Extract the "Skyrim Live Map" folder anywhere you like and double-click [b]SkyrimLiveMap.exe[/b]. A window opens with the map's address and a QR code. Leave it open while you play.
+The first time, Windows asks whether to allow Node.js on networks: allow it on [b]Private networks[/b], or your phone won't be able to connect.
+
+[size=4][b]Using it[/b][/size]
+[list=1]
+[*]Start SkyrimLiveMap.exe.
+[*]Open the map: [b]http://localhost:8787[/b] on the gaming PC, or scan the QR code with your phone (same Wi-Fi).
+[*]Launch Skyrim the way you normally do (MO2, Vortex, the Nolvus dashboard, with SKSE).
+[/list]
+[b]The first time you play a modlist[/b], the app builds that list's map from your game files. That takes a minute or two, and the map shows the progress. After that it opens instantly. If you change or update your modlist, open the map's panel and press [b]Rebuild map[/b].
+
+[b]Hotkeys[/b] (rebind them in the F10 menu or the ini): Num +/- zoom, Num 8/2/4/6 pan, Num 5 recenter, Num 0 for 2D/3D, Num . for the next map style.
+
+[size=4][b]FAQ[/b][/size]
+[b]Does it affect performance?[/b]
+The plugin uses well under 1% of one CPU core. The map runs on whatever device shows it.
+
+[b]Does it disable my ReShade add-ons?[/b]
+No. The game and the app talk over a local Windows pipe, not the network, so ReShade's "network activity" guard isn't triggered.
+
+[b]My phone can't open the map.[/b]
+Allow Node.js through Windows Firewall on Private networks, make sure your Windows network is set to Private (not Public), and that the phone is on the same network.
+
+[b]My antivirus flags the app.[/b]
+The app is a small launcher plus the standard Node.js and Python runtimes, unchanged. It installs nothing and only serves the map on your own network. The plugin and app are scanned by Nexus on upload.
+
+[b]Can I use it with a mod-added worldspace (Solstheim, Bruma, Wyrmstooth...)?[/b]
+Not yet: the map covers Skyrim (Tamriel) and the cities inside it. You're still tracked indoors and in any interior.
+
+[b]Uninstall?[/b]
+Disable or remove the plugin in your mod manager, delete the app folder, and delete %LOCALAPPDATA%\SkyrimLiveMap (where your maps are stored).
+
+[size=4][b]Credits[/b][/size]
+[list]
+[*]SKSE team, and meh321 for Address Library
+[*]CommonLibSSE-NG and its contributors
+[*]QTR-Modding / Thiago Kaique for SKSE Menu Framework
+[*]three.js, Node.js, Python, NumPy, Pillow, lz4 (licenses in the THIRD-PARTY-NOTICES file)
+[/list]
+Maps are generated on your own PC from your own copy of the game; no Bethesda assets are included in the downloads.
+
+---------------------------------------------------------------- Files tab
+
+File 1 (Main file)
+  Name:        Skyrim Live Map - SKSE Plugin
+  Upload:      dist\SkyrimLiveMap-Plugin-1.0.0.zip
+  Description: The SKSE plugin. Install with Mod Organizer 2 or Vortex. Needs SKSE64 and Address Library.
+
+File 2 (Main file)
+  Name:        Skyrim Live Map - Companion App
+  Upload:      dist\SkyrimLiveMap-App-1.0.0.zip
+  Description: The map app. NOT a mod: extract anywhere and run SkyrimLiveMap.exe. Includes everything it needs.
+  Tip: tick "Remove download with manager button" for this file, so nobody installs it into MO2 by accident.
+
+Suggested category: Utilities (or User Interface). Tags: Map, SKSE, Utilities, User Interface.
