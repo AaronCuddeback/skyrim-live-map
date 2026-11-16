@@ -3,9 +3,9 @@ Images: the description embeds the screenshots from the GitHub repo by URL. Also
 Images tab (media\nexus, captions in media\nexus\CAPTIONS.txt): 00-main-image.png as the primary
 image and 00-header-banner.png as the header image.
 
-Short summary (for the "Brief overview" field, max ~350 characters):
+Short summary (for the "Brief overview" field, max 350 characters; this one is 346):
 
-A live 3D map of Skyrim on your phone, tablet or second monitor. It follows your character in real time with quest markers, nearby enemies, interior floor plans, a compass and your inventory, and it's built from your own load order, so mod-added towns and dungeons are on it. Works with Wabbajack lists like Nolvus.
+Track your character live on a 3D map of Skyrim on your phone, tablet or second monitor. Quest markers, nearby enemies, real dungeon floor plans, a compass, inventory and in-game hotkeys. Built from your own load order, so mod-added towns and dungeons are on it. SKSE plugin + companion app, nothing to install. Works with MO2, Vortex and Nolvus.
 
 ---------------------------------------------------------------- description below
 
