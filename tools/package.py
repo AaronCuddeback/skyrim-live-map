@@ -1,7 +1,7 @@
 """Build the two Nexus downloads into dist/:
 
   SkyrimLiveMap-Plugin-<ver>.zip   the SKSE plugin, as a mod archive for MO2 / Vortex
-  SkyrimLiveMap-App-<ver>.zip      the companion app: extract anywhere, run SkyrimLiveMap.exe
+  SkyrimLiveMap-App-<ver>.zip      the companion app: extract anywhere, run "Start Skyrim Live Map.cmd"
 
 The app carries its own Node.js and a trimmed private Python (numpy, Pillow, lz4), so
 players install nothing. Build the plugin first (see README); then, from the project:
@@ -22,7 +22,6 @@ DIST = ROOT / "dist"
 # Staged outside the project: vcpkg-style deep paths and OneDrive-style sync both hate it there.
 STAGE = Path(os.environ["LOCALAPPDATA"]) / "slm-pkg" / "release"
 PLUGIN_DLL = Path(os.environ["LOCALAPPDATA"]) / "slm-build" / "build" / "Release" / "SkyrimLiveMap.dll"
-VCVARS = Path(r"C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Auxiliary\Build\vcvars64.bat")
 
 # Standard library parts the tools never use.
 STDLIB_SKIP = {"test", "tests", "idlelib", "tkinter", "turtledemo", "ensurepip", "venv", "lib2to3", "pydoc_data",
@@ -77,23 +76,6 @@ def build_python(dst):
             copytree(info, site / info.name)
     # Like the official embeddable Python: exactly these paths, no site, no user folders.
     (dst / f"{tag}._pth").write_text("\n".join([f"{tag}.zip", "DLLs", r"Lib\site-packages", r"..\..\app\tools", ""]), encoding="ascii")
-
-
-def build_launcher(dst, ver):
-    src = ROOT / "launcher"
-    work = STAGE.parent / "launcher"
-    shutil.rmtree(work, ignore_errors=True)
-    copytree(src, work)
-    commas = ",".join((ver.split(".") + ["0"] * 4)[:4])
-    (work / "version.h").write_text(f'#define SLM_VERSION "{ver}"\n#define SLM_VERSION_COMMAS {commas}\n', encoding="ascii")
-    (work / "build.bat").write_text("\r\n".join([
-        "@echo off",
-        f'call "{VCVARS}" >nul || exit /b 1',
-        "rc /nologo launcher.rc || exit /b 1",
-        "cl /nologo /std:c++20 /O2 /MT /EHsc /W4 /WX /DUNICODE /D_UNICODE launcher.cpp launcher.res /Fe:SkyrimLiveMap.exe /link /SUBSYSTEM:CONSOLE",
-    ]), encoding="ascii")
-    subprocess.run(["cmd", "/c", str(work / "build.bat")], cwd=work, check=True)
-    shutil.copy2(work / "SkyrimLiveMap.exe", dst / "SkyrimLiveMap.exe")
 
 
 def node_exe():
@@ -154,7 +136,9 @@ def main():
     # The Windows installer ships no license file: Node's own, with a link to the full one.
     shutil.copy2(ROOT / "packaging" / "NODE-LICENSE.txt", node_dir / "LICENSE.txt")
     build_python(app / "runtime" / "python")
-    build_launcher(app, ver)
+    # A script, not an exe: an unsigned launcher exe got the archive quarantined as a false
+    # positive, and this way every program in the zip is signed by its own publisher.
+    shutil.copy2(ROOT / "packaging" / "Start Skyrim Live Map.cmd", app / "Start Skyrim Live Map.cmd")
     shutil.copy2(ROOT / "packaging" / "README.txt", app / "README.txt")
     shutil.copy2(ROOT / "packaging" / "APP-NOTICES.txt", app / "THIRD-PARTY-NOTICES.txt")
 

@@ -73,7 +73,7 @@ Skyrim.esm (your copy) ──tools/extract_map.py──▶ web/data/ (terrain, c
 The Nexus release is two downloads; nothing else to install:
 
 1. **Plugin** (`SkyrimLiveMap-Plugin-<ver>.zip`): install it with MO2 or Vortex like any SKSE mod. Needs SKSE64 and Address Library.
-2. **App** (`SkyrimLiveMap-App-<ver>.zip`): extract the folder anywhere and run `SkyrimLiveMap.exe`. It carries its own Node.js and Python, prints the map's address and a QR code, and stops when you close its window.
+2. **App** (`SkyrimLiveMap-App-<ver>.zip`): extract the folder anywhere and double-click `Start Skyrim Live Map.cmd`. It carries its own Node.js and Python, prints the map's address and a QR code, and stops when you close its window.
 
 The first time a modlist connects, the app builds that list's map from its own files (a minute or two, with progress on the map page). Maps live in `%LOCALAPPDATA%\SkyrimLiveMap\maps`; **Rebuild map** in the panel redoes one after a modlist update. `packaging/README.txt` is the player-facing guide that ships in the app folder.
 
@@ -129,7 +129,7 @@ Output: `%LOCALAPPDATA%\slm-build\build\Release\SkyrimLiveMap.dll`. The build tr
 
 ### 4. Install the plugin
 
-A ready-built mod archive is in `dist\SkyrimLiveMap-Plugin-1.0.0.zip` (contains `SKSE/Plugins/SkyrimLiveMap.dll`, `.ini` and the third-party notices).
+A ready-built mod archive is in `dist\SkyrimLiveMap-Plugin-1.0.1.zip` (contains `SKSE/Plugins/SkyrimLiveMap.dll`, `.ini` and the third-party notices).
 
 - **MO2 / Wabbajack lists**: in each list's MO2, *Install a new mod from an archive*, pick the zip, and enable it. Put it near the bottom of the left pane (it conflicts with nothing). Adding a mod doesn't break a Wabbajack list, but its next update may ask what to do with unknown mods. Keep it, or re-add it afterwards.
 - **Vortex**: drag the zip onto the Mods page and enable it.
@@ -245,7 +245,7 @@ tools\.venv\Scripts\python.exe tools\package.py
 
 Build the plugin first. The script reads the version from `plugin/CMakeLists.txt` and writes `dist\SkyrimLiveMap-Plugin-<ver>.zip` and `dist\SkyrimLiveMap-App-<ver>.zip`. The app zip holds:
 
-- `SkyrimLiveMap.exe`, a small launcher built from `launcher/` with MSVC;
+- `Start Skyrim Live Map.cmd`, the start script (`packaging/`). It replaced a small unsigned launcher exe in 1.0.1: that exe got the archive quarantined as an antivirus false positive, and now every program in the zip is signed by its own publisher;
 - `app\` (server, web app without map data, Python tools);
 - `runtime
 ode` (this PC's `node.exe`);

@@ -26,6 +26,7 @@ import re
 import shutil
 import struct
 import sys
+import threading
 import time
 from collections import Counter
 from pathlib import Path
@@ -434,7 +435,23 @@ def update_index(root, entry):
     index_path.write_text(json.dumps(sorted(datasets, key=lambda d: d["name"].lower()), indent=2), encoding="utf-8")
 
 
+def exit_with_parent():
+    """When the relay runs this, it holds our stdin open: end with it (window closed,
+    relay crashed) instead of finishing a minute of work nobody is waiting for."""
+    def watch():
+        # The raw descriptor, not sys.stdin: a thread blocked on that holds its lock and
+        # crashes the interpreter's normal shutdown.
+        try:
+            while os.read(0, 4096):
+                pass
+        finally:
+            os._exit(1)
+    threading.Thread(target=watch, daemon=True).start()
+
+
 def main():
+    if os.environ.get("SLM_WATCH_PARENT"):
+        exit_with_parent()
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--mo2", type=Path, nargs="+", metavar="FOLDER",
                         help="one or more Mod Organizer 2 instances / Wabbajack modlist folders")

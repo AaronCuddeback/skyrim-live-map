@@ -69,18 +69,19 @@ Works on Skyrim SE 1.5.97 and AE 1.6.x. Not for Skyrim VR.
 
 [size=4][b]Installation[/b][/size]
 There are [b]two downloads[/b] in the Files tab. You need both.
+[i]Mirror: both files are also on GitHub: [url=https://github.com/AaronCuddeback/skyrim-live-map/releases/latest]latest release[/url].[/i]
 
 [b]1. Skyrim Live Map - SKSE Plugin[/b]
 Install it with your mod manager like any other mod (MO2: "Install a new mod from an archive"; Vortex: drag it in), and enable it. It conflicts with nothing.
 [i]Wabbajack lists (Nolvus, etc.): adding a mod won't break the list, but its next update may ask what to do with it. Keep it, or reinstall it afterwards.[/i]
 
 [b]2. Skyrim Live Map - Companion App[/b]
-This one is NOT a mod: don't install it with your mod manager. Extract the "Skyrim Live Map" folder anywhere you like and double-click [b]SkyrimLiveMap.exe[/b]. A window opens with the map's address and a QR code. Leave it open while you play.
+This one is NOT a mod: don't install it with your mod manager. Extract the "Skyrim Live Map" folder anywhere you like and double-click [b]Start Skyrim Live Map[/b] (the .cmd file). A window opens with the map's address and a QR code. Leave it open while you play.
 The first time, Windows asks whether to allow Node.js on networks: allow it on [b]Private networks[/b], or your phone won't be able to connect.
 
 [size=4][b]Using it[/b][/size]
 [list=1]
-[*]Start SkyrimLiveMap.exe.
+[*]Double-click Start Skyrim Live Map.
 [*]Open the map: [b]http://localhost:8787[/b] on the gaming PC, or scan the QR code with your phone (same Wi-Fi).
 [*]Launch Skyrim the way you normally do (MO2, Vortex, the Nolvus dashboard, with SKSE).
 [/list]
@@ -99,7 +100,7 @@ No. The game and the app talk over a local Windows pipe, not the network, so ReS
 Allow Node.js through Windows Firewall on Private networks, make sure your Windows network is set to Private (not Public), and that the phone is on the same network.
 
 [b]My antivirus flags the app.[/b]
-The app is a small launcher plus the standard Node.js and Python runtimes, unchanged. It installs nothing and only serves the map on your own network. The plugin and app are scanned by Nexus on upload.
+The app contains no program of its own: it's a start script plus the standard Node.js and Python runtimes, unchanged and digitally signed by their publishers (OpenJS Foundation and Python Software Foundation). It installs nothing and only serves the map on your own network. The full source is on GitHub.
 
 [b]Can I use it with a mod-added worldspace (Solstheim, Bruma, Wyrmstooth...)?[/b]
 Not yet: the map covers Skyrim (Tamriel) and the cities inside it. You're still tracked indoors and in any interior.
@@ -123,13 +124,13 @@ Open source under the MIT license: [url=https://github.com/AaronCuddeback/skyrim
 
 File 1 (Main file)
   Name:        Skyrim Live Map - SKSE Plugin
-  Upload:      dist\SkyrimLiveMap-Plugin-1.0.0.zip
+  Upload:      dist\SkyrimLiveMap-Plugin-1.0.1.zip
   Description: The SKSE plugin. Install with Mod Organizer 2 or Vortex. Needs SKSE64 and Address Library.
 
 File 2 (Main file)
   Name:        Skyrim Live Map - Companion App
-  Upload:      dist\SkyrimLiveMap-App-1.0.0.zip
-  Description: The map app. NOT a mod: extract anywhere and run SkyrimLiveMap.exe. Includes everything it needs.
+  Upload:      dist\SkyrimLiveMap-App-1.0.1.zip
+  Description: The map app. NOT a mod: extract anywhere and run "Start Skyrim Live Map.cmd". Includes everything it needs.
   Tip: tick "Remove download with manager button" for this file, so nobody installs it into MO2 by accident.
 
 Suggested category: Utilities (or User Interface). Tags: Map, SKSE, Utilities, User Interface.

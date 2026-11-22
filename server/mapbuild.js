@@ -32,7 +32,8 @@ export function createMapBuilder({ dataDir, python, toolsDir, broadcast, onBuilt
     let finished = false;
     const child = spawn(python, ['-u', path.join(toolsDir, 'extract_map.py'), ...args], {
       cwd: toolsDir,
-      env: { ...process.env, SLM_DATA: dataDir, PYTHONIOENCODING: 'utf-8' },
+      // stdin stays an open pipe: the build ends itself if this process goes away.
+      env: { ...process.env, SLM_DATA: dataDir, PYTHONIOENCODING: 'utf-8', SLM_WATCH_PARENT: '1' },
       windowsHide: true,
     });
     // A build is a minute of heavy CPU work; never let it compete with the game.

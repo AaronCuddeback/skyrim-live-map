@@ -12,8 +12,8 @@ You need two things:
 START IT
 --------
 1. Extract this whole folder anywhere (Desktop, Documents, D:\Tools...). Keep the
-   "app" and "runtime" folders next to SkyrimLiveMap.exe.
-2. Double-click SkyrimLiveMap.exe. A window opens with the map's address and a QR code.
+   "app" and "runtime" folders next to "Start Skyrim Live Map.cmd".
+2. Double-click "Start Skyrim Live Map" (the .cmd file). A window opens with the map's address and a QR code.
    Leave it open while you play; close it when you're done.
 3. Open the map:
      - on this PC:          http://localhost:8787
@@ -58,8 +58,9 @@ TROUBLESHOOTING
   is set to Private, not Public.
 - "Port 8787 is already in use": the app is already running; look in the taskbar.
 - A map build failed: the app window shows why. Rebuild it from the panel once fixed.
-- Antivirus complaints: the app is a launcher plus standard Node.js and Python
-  runtimes; nothing is installed and nothing leaves your network.
+- Antivirus complaints: the app is a start script plus the standard Node.js and
+  Python runtimes, unchanged and signed by their own publishers; nothing is installed
+  and nothing leaves your network.
 
 To uninstall, delete this folder and %LOCALAPPDATA%\SkyrimLiveMap.
 
